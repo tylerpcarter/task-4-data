@@ -11,14 +11,12 @@ We will create a short questionnaire and then use Bash to script collection of a
 You will be exposed to the following skillsets;
 
 1. Scripting user input
-2. 
-3. Saving data to csv file
+2. Saving data to csv file
 
 ## Expectations
 
-I expect you to create a set of well-formed documents which contain original content (i.e. - your own writing). 
-You will create multiple document types from a markdown source file. 
-The markdown source file will contain a piece of writing that you have done for another class or an original piece for this class.
+I expect you to work in your teams to create a script that will take input from users and then store their responses to a CSV file.
+It must aggregate the responses of multiple users and therefore needs to have some form of disambiguation involved in the data generation process. 
 
 ## Prerequisites
 
@@ -29,7 +27,7 @@ The only thing that you will need is Bash and text files, all of which are avail
 You will need to do the following for this assignment to be considered complete. 
 
 1. Create a list of five questions.
-3. Write a script that will do the following:
+2. Write a script that will do the following:
   - Ask each question of the user running the script.
   - Write a random string of characters to a variable as a unique identifier.
   - Write the datestamp to a variable.
