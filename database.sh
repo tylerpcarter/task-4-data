@@ -33,6 +33,6 @@ if [ "$DBCHECK" == "$MYTABLE" ]; then
    
 else
    echo "Table does not exist. Creating table..."
-   mysql -u"$MYSQLUSER" -p"$MYSQLPASS" -e "CREATE TABLE $MYTABLE (ID VARCHAR(255), Date TIMESTAMP, capitalOfUSA VARCHAR(255), limitBAC VARCHAR(255), favSH VARCHAR(255), vidGame NUMERIC(5,2), handSan VARCHAR(255)); ALTER TABLE $MYTABLE ADD PRIMARY KEY (ID);" $MYDATABASE
+   mysql -u"$MYSQL" -p"$MYSQL" -e "CREATE TABLE $TABLE (ID VARCHAR(255), Date TIMESTAMP, HomeCapital VARCHAR(255), BAC_Limit VARCHAR(255), Fav_Superhero VARCHAR(255), First_VidGame NUMERIC(5,2), %GermElimByHandSanitizer VARCHAR(255)); ALTER TABLE $TABLE ADD PRIMARY KEY (ID);" $DATABASE
    
 fi
