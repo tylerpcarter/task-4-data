@@ -15,7 +15,7 @@ sudo cp ./temp.csv /var/lib/mysql-files/
 checkDB=`mysql -u"$MYSQL" -p"$MYSQL" -e "show databases;" | grep -Fo $DATABASE`
 
 #Conditional Statement to Create Database if it doesn't already exist
-if [ "$checkDB" == "$DATABASE"]; then
+if [ "$checkDB" == "$DATABASE" ]; then
 echo "Database exists, continuing without creating new database."
 
 else
