@@ -1,12 +1,8 @@
 #!/bin/bash
 
-#SQL credentials
-SQL=root
-
 #I modified this forloop from stack exchange to instead of echo out char by char, to concatenate each char into a string. After generating a 12 
 #character random sequence, I echo the entire string.
 #The % I added in because it will prevent and overflow and will keep the max # down,
-
 chars=abcd1234ABCD
 for i in {1..12} ; 
 do
@@ -14,6 +10,11 @@ do
 done
 echo $randomString
 
+#Saves timestamp into variable and echos the current time.
+dateStamp=`date --iso-8601=seconds`
+echo "The date is "$dateStamp""
+
+##############################################################################
 #Ask survey questions and get answers for each
 echo "What is the capital of USA?"
 read capitalOfUSA
@@ -29,15 +30,15 @@ read vidGame
 
 echo "What percentage of germs do hand sanitizers promise to eliminate?"
 read handSan
+##############################################################################
+
 
 #Writes data into temp.csv
-echo "$capitalOfUSA,$limitBAC,$favSH,$vidGame,$handSan" >> ./temp.csv
+#and then reads out data
+echo "$randomString,$dateStamp,$capitalOfUSA,$limitBAC,$favSH,$vidGame,$handSan" > ./temp.csv
 #Read out data in CSV format
 cat temp.csv
 
-#Saves timestamp into variable and echos the current time.
-dateStamp=`date --iso-8601=seconds`
-echo "The date is "$dateStamp""
+#Write new survey data to database
+bash ./database.sh
 
-#Get into mysql
-mysql -u $SQL --password="$SQL" && "show databases;"
