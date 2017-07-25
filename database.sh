@@ -28,3 +28,11 @@ fi
 checkTable=`mysql -u"$MYSQL" -p"$MYSQL" -e "show tables;" $DATABASE | grep -Fo $TABLE`
 
 #Conditional statement to create table if it doesn't already exist
+if [ "$DBCHECK" == "$MYTABLE" ]; then
+   echo "Table exists"
+   
+else
+   echo "Table does not exist. Creating table..."
+   mysql -u"$MYSQLUSER" -p"$MYSQLPASS" -e "CREATE TABLE $MYTABLE (ID VARCHAR(255), Date TIMESTAMP, capitalOfUSA VARCHAR(255), limitBAC VARCHAR(255), favSH VARCHAR(255), vidGame NUMERIC(5,2), handSan VARCHAR(255)); ALTER TABLE $MYTABLE ADD PRIMARY KEY (ID);" $MYDATABASE
+   
+fi
