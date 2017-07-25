@@ -40,7 +40,7 @@ fi
 #Write data from temp.csv into database table
 echo "Writing data from temp.csv in "$TABLE" to "$DATABASE"."
 mysql -u"$MYSQL" -p"$MYSQL" -e "LOAD DATA INFILE '/var/lib/mysql-files/temp.csv' INTO TABLE $TABLE FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"';" $DATABASE
-
+ 
 # Dump current version of database into export file
 echo "Survey data dumped to file `date --iso-8601`-$DATABASE.sql"
 mysqldump -u"$MYSQL" -p"$MYSQL" $DATABASE > `date --iso-8601`-$DATABASE.sql
