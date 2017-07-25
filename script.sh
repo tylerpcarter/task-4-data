@@ -33,12 +33,15 @@ read handSan
 ##############################################################################
 
 
-#Writes data into temp.csv
-#and then reads out data
+#Writes data into temp.csv and then reads out data in CSV format
 echo "$randomString,$dateStamp,$capitalOfUSA,$limitBAC,$favSH,$vidGame,$handSan" > ./temp.csv
-#Read out data in CSV format
 cat temp.csv
 
 #Write new survey data to database
 bash ./database.sh
 
+#create the backup
+cat ./temp.csv >> backup.csv
+
+#Destroy Temp File
+rm temp.csv
